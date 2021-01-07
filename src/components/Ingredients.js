@@ -21,7 +21,7 @@ const Ingredients = () => {
   const [isOpenMeat, setIsOpenMeat] = useState(false);
   const [isOpenVegetables, setIsOpenVegetables] = useState(false);
   const [isOpenCheese, setIsOpenCheese] = useState(false);
-  console.log(ingredienty);
+
   const [cat, setCat] = useState("Select Category");
   const [name, setName] = useState("");
   const [isDropdownInputOpen, setIsDropdownInputOpen] = useState(false);
@@ -104,7 +104,6 @@ const Ingredients = () => {
             { name: name, category: cat },
           ];
           setIngredienty(context.ingredients);
-          console.log(ingredienty);
         }}
       >
         Add
