@@ -9,8 +9,11 @@ const App = () => {
     <Router>
       <Menu />
       <Switch>
-        <Route exact path="/orderpizza">
-          <OrderPizza />
+        <Route exact path="/order/pizza">
+          <OrderPizza name="pizza" />
+        </Route>
+        <Route exact path="/order/calzone">
+          <OrderPizza name="calzone" />
         </Route>
         <Route exact path="/ingredients">
           <Ingredients />

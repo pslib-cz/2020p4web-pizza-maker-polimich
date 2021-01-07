@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -14,7 +15,7 @@ import {
   NavbarText,
 } from "reactstrap";
 
-const Menu = (props) => {
+const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -22,29 +23,31 @@ const Menu = (props) => {
   return (
     <div>
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Home</NavbarBrand>
+        <NavbarBrand tag={Link} to="/">
+          Home
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/orderpizza">Order Pizza</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="ingredients">Ingredients</NavLink>
+              <NavLink tag={Link} to="/ingredients" onClick={toggle}>
+                Ingredients
+              </NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
-                Options
+                Order Pizza
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
+                <DropdownItem tag={Link} to="/order/pizza" onClick={toggle}>
+                  Regular Pizza
+                </DropdownItem>
+                <DropdownItem tag={Link} to="/order/calzone" onClick={toggle}>
+                  Calzone
+                </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>

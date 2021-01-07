@@ -1,11 +1,9 @@
 import React from "react";
-import Pizza from "./Pizza";
 
-const OrderPizza = () => {
+const OrderPizza = ({ name }) => {
   return (
     <div>
-      <Pizza name="Pizza" />
-      <Pizza name="Calzone" />
+      <label>{name}</label>
     </div>
   );
 };
